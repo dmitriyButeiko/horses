@@ -13,15 +13,15 @@ while (!feof($file_handle) ) {
 $line_of_text = fgets($file_handle);
 $parts = explode(',', $line_of_text);
 //print_r($parts);
-$str = join('", "', $parts);
-$str = "\"".$str."\"";
+$str = join('|', $parts);
+$str1 = "\"".$str."\"";
     
-//echo $str;
+//echo $str1;
 }
 //Change the distance as per your
-$distance = "10";
+$distance = "1200";
 
-fclose($file_handle);
+//fclose($file_handle);
 
 
 // Create connection
@@ -38,9 +38,10 @@ $str = join('", "', $myArray);
 header('location:index.php?hname="'.$str.'"');
 }
 */
-if(isset($str)){
-$sql = "SELECT *, MIN(time) minimumtime,AVG(time) avgtime FROM data WHERE `name` IN (".$str.") AND distance >= $distance GROUP BY name,`distance`";
+
+$sql = "SELECT *, MIN(time) minimumtime,AVG(time) avgtime FROM data WHERE `name` REGEXP (".$str1.") AND distance >= $distance GROUP BY name,`distance`";
 //echo $sql;
+//echo $str1;
 $result = $conn->query($sql);
 
 
@@ -118,7 +119,7 @@ $('#employee_grid').DataTable({
              });   
 });
 </script>
-<?php } ?>
+
 
 <form method="POST" name="searchvanita" class="searchvanita" id="searchvanita" style="display:none;">
 <div class="clear"></div>
