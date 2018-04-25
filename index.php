@@ -38,7 +38,7 @@ $str = join('", "', $myArray);
 header('location:index.php?hname="'.$str.'"');
 }
 */
-
+if(isset($str1)){
 $sql = "SELECT *, MIN(time) minimumtime,AVG(time) avgtime FROM data WHERE `name` REGEXP (".$str1.") AND distance >= $distance GROUP BY name,`distance`";
 //echo $sql;
 //echo $str1;
@@ -119,7 +119,7 @@ $('#employee_grid').DataTable({
              });   
 });
 </script>
-
+<?php } ?>
 
 <form method="POST" name="searchvanita" class="searchvanita" id="searchvanita" style="display:none;">
 <div class="clear"></div>
