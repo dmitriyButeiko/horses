@@ -5,43 +5,21 @@ $username = "root";
 $password = "";
 $dbname = "horses";
 
-
-$file_handle = fopen("horses.txt", "rb");
-
-while (!feof($file_handle) ) {
-
-$line_of_text = fgets($file_handle);
-$parts = explode(',', $line_of_text);
-//print_r($parts);
-$str = join('|', $parts);
-$str1 = "\"".$str."\"";
-    
-//echo $str1;
-}
-//Change the distance as per your
-$distance = "1200";
-
-//fclose($file_handle);
-
-
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-/*
 if(isset($_REQUEST['searchsn'])){
     var_dump($_POST);
     $myArray = array_filter($_POST['sn']);
 $str = join('", "', $myArray);
 header('location:index.php?hname="'.$str.'"');
 }
-*/
 
-$sql = "SELECT *, MIN(time) minimumtime,AVG(time) avgtime FROM data WHERE `name` REGEXP (".$str1.") AND distance >= $distance GROUP BY name,`distance`";
-//echo $sql;
-//echo $str1;
+if(isset($_REQUEST['hname'])){
+$sql = "SELECT *, MIN(time) minimumtime,AVG(time) avgtime FROM data WHERE `name` IN (".$_REQUEST['hname'].") GROUP BY name,`distance`";
 $result = $conn->query($sql);
 
 
@@ -119,9 +97,19 @@ $('#employee_grid').DataTable({
              });   
 });
 </script>
+<?php } 
 
+$file = fopen("test.txt","r"); 
+while(! feof($file))
+  {
+    echo fgets($file). "<br />";
+      }
 
-<form method="POST" name="searchvanita" class="searchvanita" id="searchvanita" style="display:none;">
+      fclose($file);
+
+?>
+
+<form method="POST" name="searchvanita" class="searchvanita" id="searchvanita">
 <div class="clear"></div>
 <div class="c_one"> <label>Horse 1</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-c" placeholder="Horse Name" autocomplete="off" />  </div>
 <div class="c_one"> <label>Horse 2</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-c" placeholder="Horse Name" autocomplete="off" />  </div>

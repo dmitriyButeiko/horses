@@ -1,5 +1,5 @@
 <?php
-
+#test
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -97,30 +97,38 @@ $('#employee_grid').DataTable({
              });   
 });
 </script>
-<?php } ?>
+<?php } 
 
-  <form method="POST" name="searchvanita" class="searchvanita" id="searchvanita">
-                                                                <div class="clear">
-                                                                </div>
-<div class="col_one_fifth"> <label>Horse 1</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-control" placeholder="Horse Name" autocomplete="off" />  </div>
-<div class="col_one_fifth"> <label>Horse 2</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-control" placeholder="Horse Name" autocomplete="off" />  </div>
-<div class="col_one_fifth"> <label>Horse 3</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-control" placeholder="Horse Name" autocomplete="off" />  </div>
-<div class="col_one_fifth"> <label>Horse 4</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-control" placeholder="Horse Name" autocomplete="off" />  </div>
-<div class="col_one_fifth"> <label>Horse 5</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-control" placeholder="Horse Name" autocomplete="off" />  </div>
-<div class="col_one_fifth"> <label>Horse 6</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-control" placeholder="Horse Name" autocomplete="off" />  </div>
-<div class="col_one_fifth"> <label>Horse 7</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-control" placeholder="Horse Name" autocomplete="off" />  </div>
-<div class="col_one_fifth"> <label>Horse 8</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-control" placeholder="Horse Name" autocomplete="off" />  </div>
-<div class="col_one_fifth"> <label>Horse 9</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-control" placeholder="Horse Name" autocomplete="off" />  </div>
-<div class="col_one_fifth"> <label>Horse 10</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-control" placeholder="Horse Name" autocomplete="off" />  </div>
-<div class="col_one_fifth"> <label>Horse 11</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-control" placeholder="Horse Name" autocomplete="off" />  </div>                                    
-<div class="col_one_fifth"> <label>Horse 12</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-control" placeholder="Horse Name" autocomplete="off" />  </div>
-<div class="col_one_fifth"> <label>Horse 13</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-control" placeholder="Horse Name" autocomplete="off" />  </div>
-<div class="col_one_fifth"> <label>Horse 14</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-control" placeholder="Horse Name" autocomplete="off" />  </div>
-<div class="col_one_fifth"> <label>Horse 15</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-control" placeholder="Horse Name" autocomplete="off" />  </div>
-<div class="col_one_fifth"> <label>Horse 16</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-control" placeholder="Horse Name" autocomplete="off" />  </div>
-<div class="col_one_fifth"> <label>Horse 17</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-control" placeholder="Horse Name" autocomplete="off" />  </div>
+$file = fopen("test.txt","r"); 
+while(! feof($file))
+  {
+    echo fgets($file). "<br />";
+      }
 
-             <div class="col_one_fifth">
-                                                                   <br/> <input type="submit" name="searchsn" value="Search Horses"  tabindex="9" class="button button-3d nomargin" />
-                                                                </div>
-        </form>
+      fclose($file);
+
+?>
+
+<form method="POST" name="searchvanita" class="searchvanita" id="searchvanita">
+<div class="clear"></div>
+<div class="c_one"> <label>Horse 1</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-c" placeholder="Horse Name" autocomplete="off" />  </div>
+<div class="c_one"> <label>Horse 2</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-c" placeholder="Horse Name" autocomplete="off" />  </div>
+<div class="c_one"> <label>Horse 3</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-c" placeholder="Horse Name" autocomplete="off" />  </div>
+<div class="c_one"> <label>Horse 4</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-c" placeholder="Horse Name" autocomplete="off" />  </div>
+<div class="c_one"> <label>Horse 5</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-c" placeholder="Horse Name" autocomplete="off" />  </div>
+<div class="c_one"> <label>Horse 6</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-c" placeholder="Horse Name" autocomplete="off" />  </div>
+<div class="c_one"> <label>Horse 7</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-c" placeholder="Horse Name" autocomplete="off" />  </div>
+<div class="c_one"> <label>Horse 8</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-c" placeholder="Horse Name" autocomplete="off" />  </div>
+<div class="c_one"> <label>Horse 9</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-c" placeholder="Horse Name" autocomplete="off" />  </div>
+<div class="c_one"> <label>Horse 10</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-c" placeholder="Horse Name" autocomplete="off" />  </div>
+<div class="c_one"> <label>Horse 11</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-c" placeholder="Horse Name" autocomplete="off" />  </div>
+<div class="c_one"> <label>Horse 12</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-c" placeholder="Horse Name" autocomplete="off" />  </div>
+<div class="c_one"> <label>Horse 13</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-c" placeholder="Horse Name" autocomplete="off" />  </div>
+<div class="c_one"> <label>Horse 14</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-c" placeholder="Horse Name" autocomplete="off" />  </div>
+<div class="c_one"> <label>Horse 15</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-c" placeholder="Horse Name" autocomplete="off" />  </div>
+<div class="c_one"> <label>Horse 16</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-c" placeholder="Horse Name" autocomplete="off" />  </div>
+<div class="c_one"> <label>Horse 17</label> <input name="sn[]" type="text" id="sn" tabindex="1" class="sm-form-c" placeholder="Horse Name" autocomplete="off" />  </div>
+
+<div class="col_one_fifth"> <br/> <input type="submit" name="searchsn" value="Search Horses"  tabindex="9" class="button button-3d nomargin" />
+</div>
+</form>
