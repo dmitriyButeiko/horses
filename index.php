@@ -18,6 +18,8 @@ $str = "\"".$str."\"";
     
 //echo $str;
 }
+//Change the distance as per your need
+$distance = "1500";
 
 fclose($file_handle);
 
@@ -37,7 +39,7 @@ header('location:index.php?hname="'.$str.'"');
 }
 */
 if(isset($str)){
-$sql = "SELECT *, MIN(time) minimumtime,AVG(time) avgtime FROM data WHERE `name` IN (".$str.") GROUP BY name,`distance`";
+$sql = "SELECT *, MIN(time) minimumtime,AVG(time) avgtime FROM data WHERE `name` IN (".$str.") AND distance >= $distance GROUP BY name,`distance`";
 $result = $conn->query($sql);
 
 
