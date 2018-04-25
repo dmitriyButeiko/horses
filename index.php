@@ -7,7 +7,7 @@ $dbname = "horses";
 
 
 $file_handle = fopen("horses.txt", "rb");
-
+/*
 while (!feof($file_handle) ) {
 
 $line_of_text = fgets($file_handle);
@@ -16,8 +16,8 @@ $parts = explode(',', $line_of_text);
 $str = join('|', $parts);
 $str1 = "\"".$str."\"";
     
-//echo $str1;
-}
+echo $str1;
+}*/
 //Change the distance as per your
 $distance = "1200";
 
@@ -38,10 +38,36 @@ $str = join('", "', $myArray);
 header('location:index.php?hname="'.$str.'"');
 }
 */
-if(isset($str1)){
-$sql = "SELECT *, MIN(time) minimumtime,AVG(time) avgtime FROM data WHERE `name` REGEXP (".$str1.") AND distance >= $distance GROUP BY name,`distance`";
-//echo $sql;
-//echo $str1;
+
+
+$sql = "SELECT *, MIN(time) minimumtime,AVG(time) avgtime FROM data WHERE `name` IN (";
+$file_handle = fopen("horses.txt", "rb");
+/*
+while (!feof($file_handle) ) {
+
+$line_of_text = fgets($file_handle);
+$parts = explode(',', $line_of_text);
+//print_r($parts);
+$str = join('","', $parts);
+$sql .= "\"".$str."\"";
+//$sql .= $str1;
+}*/
+
+
+while (!feof($file_handle) ) {
+
+$line_of_text = fgets($file_handle);
+$parts = explode(',', $line_of_text);
+//print_r($parts);
+$str = join('", "', $parts);
+$sql  .= "\"".$str."\"";
+    
+
+}
+$sql .= ") AND distance >= $distance GROUP BY name,`distance`";
+
+echo $sql;
+
 $result = $conn->query($sql);
 
 
@@ -119,7 +145,6 @@ $('#employee_grid').DataTable({
              });   
 });
 </script>
-<?php } ?>
 
 <form method="POST" name="searchvanita" class="searchvanita" id="searchvanita" style="display:none;">
 <div class="clear"></div>
@@ -144,3 +169,4 @@ $('#employee_grid').DataTable({
 <div class="col_one_fifth"> <br/> <input type="submit" name="searchsn" value="Search Horses"  tabindex="9" class="button button-3d nomargin" />
 </div>
 </form>
+
