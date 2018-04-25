@@ -14,14 +14,14 @@ $line_of_text = fgets($file_handle);
 $parts = explode(',', $line_of_text);
 //print_r($parts);
 $str = join('", "', $parts);
-$str = "\"".$str."\"";
+$str1 = "\"".$str."\"";
     
-//echo $str;
+echo $str1;
 }
 //Change the distance as per your
-$distance = "10";
+$distance ="1200";
 
-fclose($file_handle);
+
 
 
 // Create connection
@@ -39,8 +39,8 @@ header('location:index.php?hname="'.$str.'"');
 }
 */
 if(isset($str)){
-$sql = "SELECT *, MIN(time) minimumtime,AVG(time) avgtime FROM data WHERE `name` IN (".$str.") AND distance >= $distance GROUP BY name,`distance`";
-//echo $sql;
+$sql = "SELECT *, MIN(time) minimumtime,AVG(time) avgtime FROM data WHERE `name` IN (".$str1.") AND distance >= $distance GROUP BY name,`distance`";
+echo $sql;
 $result = $conn->query($sql);
 
 
