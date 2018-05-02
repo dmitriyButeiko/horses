@@ -87,7 +87,9 @@ header('location:index.php?hname="'.$str.'"');
 */
 
 
-$sql = "SELECT *, MIN(time) minimumtime,AVG(time) avgtime FROM data WHERE `name` IN (";
+//$sql = "SELECT *, MIN(time) minimumtime,AVG(time) avgtime FROM data WHERE `name` IN (";
+$sql = "SELECT *, MIN(time) minimumtime,MIN(time2) minimumtime2 FROM data WHERE `name` IN (";
+
 $file_handle = fopen("horses.txt", "rb");
 /*
 while (!feof($file_handle) ) {
@@ -114,7 +116,7 @@ $sql  .= "\"".$str."\"";
 $sql .= $sql1;
 $sql .=  " GROUP BY name,`distance`";
 
-//echo $sql;
+echo $sql;
 
 $result = $conn->query($sql);
 
@@ -150,7 +152,7 @@ $result = $conn->query($sql);
                  <th>weight</th>
                   <th>Minimum Time</th>
 
-                     <th>Average</th>
+                     <th>Handicap</th>
             </tr>
         </thead>
  <tbody>
@@ -158,7 +160,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<tr><td>" . $row["name"]. "</td><td>" . $row["length"]. "</td><td>" . $row["condition"]. "</td><td>" . $row["distance"]. "</td><td>" . $row["weight"]. "</td><td>" . $row["minimumtime"]. "</td><td>" . number_format($row["avgtime"],2). "</td></tr>";
+        echo "<tr><td>" . $row["name"]. "</td><td>" . $row["length"]. "</td><td>" . $row["condition"]. "</td><td>" . $row["distance"]. "</td><td>" . $row["weight"]. "</td><td>" . $row["minimumtime"]. "</td><td>" . number_format($row["minimumtime2"],2). "</td></tr>";
     }
 } else {
     echo "0 results";
@@ -176,7 +178,7 @@ $conn->close();
                  <th>weight</th>
                   <th>Minimum Time</th>
 
-                     <th>Average</th>
+                     <th>Handicap</th>
             </tr>
         </tfoot>
     </table>
