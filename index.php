@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "horses";
+$dbname = "horse2";
 
 if(isset($_REQUEST['searchsn'])){
     var_dump($_REQUEST);
@@ -66,7 +66,7 @@ $str1 = "\"".$str."\"";
 echo $str1;
 }*/
 //Change the distance as per your
-$distance = "1200";
+$distance = "800";
 
 //fclose($file_handle);
 
@@ -108,13 +108,13 @@ while (!feof($file_handle) ) {
 $line_of_text = fgets($file_handle);
 $parts = explode(',', $line_of_text);
 //print_r($parts);
-$str = join('", "', $parts);
+$str = join('","', $parts);
 $sql  .= "\"".$str."\"";
 
 
 }$sql .= ") AND ";
 $sql .= $sql1;
-$sql .=  " GROUP BY name,`distance`";
+$sql .=  " GROUP BY name,`time2`";
 
 echo $sql;
 
@@ -145,12 +145,14 @@ $result = $conn->query($sql);
 		<table id="employee_grid" class="display" width="100%" cellspacing="0">
         <thead>
             <tr>
+                <th>Number</th>
                 <th>name</th>
                 <th>length</th>
-				        <th>condition</th>
+				<th>condition</th>
                 <th>distance</th>
-                 <th>weight</th>
-                  <th>Minimum Time</th>
+                <th>weight</th>
+                <th>Sectional</th>
+                <th>Minimum Time</th>
 
                      <th>Handicap</th>
             </tr>
@@ -160,7 +162,15 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<tr><td>" . $row["name"]. "</td><td>" . $row["length"]. "</td><td>" . $row["condition"]. "</td><td>" . $row["distance"]. "</td><td>" . $row["weight"]. "</td><td>" . $row["minimumtime"]. "</td><td>" . number_format($row["minimumtime2"],2). "</td></tr>";
+        echo "<tr><td>" . 
+        $row["id"]. "</td><td>" .
+        $row["name"]. "</td><td>" . 
+        $row["length"]. "</td><td>" . 
+        $row["condition"]. "</td><td>" . 
+        $row["distance"]. "</td><td>" . 
+        $row["weight"]. "</td><td>" . 
+        $row["sectional"]. "</td><td>" .
+        $row["minimumtime"]. "</td><td>" . number_format($row["minimumtime2"],2). "</td></tr>";
     }
 } else {
     echo "0 results";
@@ -175,8 +185,9 @@ $conn->close();
                 <th>length</th>
                 <th>condition</th>
                 <th>distance</th>
-                 <th>weight</th>
-                  <th>Minimum Time</th>
+                <th>weight</th>
+                <th>Sectional</th>
+                <th>Minimum Time</th>
 
                      <th>Handicap</th>
             </tr>
