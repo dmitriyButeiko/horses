@@ -114,7 +114,7 @@ $sql  .= "\"".$str."\"";
 
 }$sql .= ") AND ";
 $sql .= $sql1;
-$sql .=  " GROUP BY name,`time2`";
+$sql .=  " GROUP BY name,`distance`";
 
 echo $sql;
 
