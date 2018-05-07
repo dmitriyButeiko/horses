@@ -10,6 +10,7 @@ $raceid = $_REQUEST['raceid'];
 $sql = "SELECT * , MIN(data.time) minimumtime,MIN(data.time2) minimumtime2 FROM horses LEFT JOIN data ON horses.horse_name = data.name WHERE horses.race_id =" . $raceid;
 
 $sql .=  " GROUP BY name,`distance`";
+
 $result = $conn->query($sql);
 ?>
 
