@@ -1,12 +1,13 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "horses";
+include('constant.php');
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
 if(isset($_REQUEST['searchsn'])){
-    var_dump($_REQUEST);
+   // var_dump($_REQUEST);
     $dtype = $_REQUEST['dtype'];
     $distance = $_REQUEST['distance'];
      $distance1 = $_REQUEST['distance1'];
@@ -54,37 +55,8 @@ if(isset($_REQUEST['searchsn'])){
     //echo $sql1;
    // exit();
 $file_handle = fopen("horses.txt", "rb");
-/*
-while (!feof($file_handle) ) {
 
-$line_of_text = fgets($file_handle);
-$parts = explode(',', $line_of_text);
-//print_r($parts);
-$str = join('|', $parts);
-$str1 = "\"".$str."\"";
-
-echo $str1;
-}*/
-//Change the distance as per your
 $distance = "800";
-
-//fclose($file_handle);
-
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-/*
-if(isset($_REQUEST['searchsn'])){
-    var_dump($_POST);
-    $myArray = array_filter($_POST['sn']);
-$str = join('", "', $myArray);
-header('location:index.php?hname="'.$str.'"');
-}
-*/
 
 
 //$sql = "SELECT *, MIN(time) minimumtime,AVG(time) avgtime FROM data WHERE `name` IN (";
@@ -116,7 +88,7 @@ $sql  .= "\"".$str."\"";
 $sql .= $sql1;
 $sql .=  " GROUP BY name,`distance`";
 
-echo $sql;
+
 
 $result = $conn->query($sql);
 
