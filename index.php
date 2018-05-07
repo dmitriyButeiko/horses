@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "horse2";
+$dbname = "horses";
 
 if(isset($_REQUEST['searchsn'])){
     var_dump($_REQUEST);
@@ -170,7 +170,7 @@ if ($result->num_rows > 0) {
         $row["distance"]. "</td><td>" . 
         $row["weight"]. "</td><td>" . 
         $row["sectional"]. "</td><td>" .
-        $row["minimumtime"]. "</td><td>" . number_format($row["minimumtime2"],2). "</td></tr>";
+        $row["minimumtime"]. "</td><td>" . number_format($row["time2"],2). "</td></tr>";
     }
 } else {
     echo "0 results";

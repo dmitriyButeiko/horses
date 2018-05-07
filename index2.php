@@ -6,7 +6,7 @@ class RacingZoneScraper {
     protected $_db_post = 3306;
     protected $_db_user = "root";
     protected $_db_password = "";
-    protected $_db_name = "horse2";
+    protected $_db_name = "horse";
     protected $_mysqli;
     protected $_stmt_data;
     protected $_stmt_meetings;
